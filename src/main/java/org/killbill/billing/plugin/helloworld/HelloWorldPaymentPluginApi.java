@@ -38,8 +38,10 @@ import org.killbill.killbill.osgi.libs.killbill.OSGIKillbillLogService;
 
 public class HelloWorldPaymentPluginApi implements PaymentPluginApi {
 
-    private final Properties properties;
-    private final OSGIKillbillLogService logService;
+    @SuppressWarnings("unused")
+	private final Properties properties;
+    @SuppressWarnings("unused")
+	private final OSGIKillbillLogService logService;
 
     public HelloWorldPaymentPluginApi(final Properties properties, final OSGIKillbillLogService logService) {
         this.properties = properties;

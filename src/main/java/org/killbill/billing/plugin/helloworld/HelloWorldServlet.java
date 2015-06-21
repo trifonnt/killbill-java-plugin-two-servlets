@@ -18,6 +18,7 @@
 package org.killbill.billing.plugin.helloworld;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -28,15 +29,26 @@ import org.osgi.service.log.LogService;
 
 public class HelloWorldServlet extends HttpServlet {
 
-    private final LogService logService;
+	private static final long serialVersionUID = 1L;
 
-    public HelloWorldServlet(final LogService logService) {
-        this.logService = logService;
-    }
+	private final LogService logService;
 
-    @Override
-    protected void doGet(final HttpServletRequest req, final HttpServletResponse resp) throws ServletException, IOException {
-        // Find me on http://127.0.0.1:8080/plugins/killbill-helloworld
-        logService.log(LogService.LOG_INFO, "Hello world");
-    }
+	public HelloWorldServlet(final LogService logService) {
+		this.logService = logService;
+	}
+
+	@Override
+	protected void doGet(final HttpServletRequest req, final HttpServletResponse resp) 
+		throws ServletException, IOException 
+	{
+		// Find me on http://127.0.0.1:8080/plugins/killbill-helloworld
+		logService.log(LogService.LOG_INFO, "Hello world");
+
+		// Set response content type
+		resp.setContentType("text/html");
+
+		// Actual logic goes here.
+		PrintWriter out = resp.getWriter();
+		out.println("<h1>Hello from KillBill Java plugin!</h1>");
+	}
 }

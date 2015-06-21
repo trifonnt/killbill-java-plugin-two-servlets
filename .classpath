@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" output="target/classes" path="src/main/java">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="var" path="M2_REPO/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="var" path="M2_REPO/org/kill-bill/billing/killbill-api/0.14/killbill-api-0.14.jar" sourcepath="M2_REPO/org/kill-bill/billing/killbill-api/0.14/killbill-api-0.14-sources.jar"/>
+	<classpathentry kind="var" path="M2_REPO/com/fasterxml/jackson/core/jackson-annotations/2.4.3/jackson-annotations-2.4.3.jar" sourcepath="M2_REPO/com/fasterxml/jackson/core/jackson-annotations/2.4.3/jackson-annotations-2.4.3-sources.jar"/>
+	<classpathentry kind="var" path="M2_REPO/joda-time/joda-time/2.3/joda-time-2.3.jar" sourcepath="M2_REPO/joda-time/joda-time/2.3/joda-time-2.3-sources.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/kill-bill/billing/plugin/killbill-plugin-api-payment/0.9/killbill-plugin-api-payment-0.9.jar" sourcepath="M2_REPO/org/kill-bill/billing/plugin/killbill-plugin-api-payment/0.9/killbill-plugin-api-payment-0.9-sources.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/kill-bill/billing/plugin/killbill-plugin-api-notification/0.9/killbill-plugin-api-notification-0.9.jar" sourcepath="M2_REPO/org/kill-bill/billing/plugin/killbill-plugin-api-notification/0.9/killbill-plugin-api-notification-0.9-sources.jar"/>
+	<classpathentry kind="src" path="/killbill-platform-osgi-api"/>
+	<classpathentry kind="var" path="M2_REPO/org/osgi/org.osgi.core/5.0.0/org.osgi.core-5.0.0.jar" sourcepath="M2_REPO/org/osgi/org.osgi.core/5.0.0/org.osgi.core-5.0.0-sources.jar"/>
+	<classpathentry kind="src" path="/killbill-platform-osgi-bundles-lib-killbill"/>
+	<classpathentry kind="var" path="M2_REPO/com/google/code/findbugs/jsr305/2.0.1/jsr305-2.0.1.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/osgi/org.osgi.compendium/5.0.0/org.osgi.compendium-5.0.0.jar" sourcepath="M2_REPO/org/osgi/org.osgi.compendium/5.0.0/org.osgi.compendium-5.0.0-sources.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/slf4j/osgi-over-slf4j/1.7.12/osgi-over-slf4j-1.7.12.jar" sourcepath="M2_REPO/org/slf4j/osgi-over-slf4j/1.7.12/osgi-over-slf4j-1.7.12-sources.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/slf4j/slf4j-api/1.7.12/slf4j-api-1.7.12.jar" sourcepath="M2_REPO/org/slf4j/slf4j-api/1.7.12/slf4j-api-1.7.12-sources.jar"/>
+	<classpathentry kind="src" path="/killbill-platform-osgi-bundles-lib-slf4j-osgi"/>
+	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>
