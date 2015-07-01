@@ -31,38 +31,38 @@ import org.osgi.service.log.LogService;
 
 public class HelloWorldListener implements OSGIKillbillEventHandler {
 
-    private final LogService logService;
-    private final OSGIKillbillAPI osgiKillbillAPI;
+	private final LogService logService;
+	private final OSGIKillbillAPI osgiKillbillAPI;
 
-    public HelloWorldListener(final OSGIKillbillLogService logService, final OSGIKillbillAPI killbillAPI) {
-        this.logService = logService;
-        this.osgiKillbillAPI = killbillAPI;
-    }
+	public HelloWorldListener(final OSGIKillbillLogService logService, final OSGIKillbillAPI killbillAPI) {
+		this.logService = logService;
+		this.osgiKillbillAPI = killbillAPI;
+	}
 
-    @Override
-    public void handleKillbillEvent(final ExtBusEvent killbillEvent) {
-        logService.log(LogService.LOG_INFO, "Received event " + killbillEvent.getEventType() +
-                                            " for object id " + killbillEvent.getObjectId() +
-                                            " of type " + killbillEvent.getObjectType());
-        try {
-            final Account account = osgiKillbillAPI.getAccountUserApi().getAccountById(killbillEvent.getAccountId(), new HelloWorldContext(killbillEvent.getTenantId()));
-            logService.log(LogService.LOG_INFO, "Account information: " + account);
-        } catch (final AccountApiException e) {
-            logService.log(LogService.LOG_WARNING, "Unable to find account", e);
-        }
-    }
+	@Override
+	public void handleKillbillEvent(final ExtBusEvent killbillEvent) {
+		logService.log(LogService.LOG_INFO, "Received event " + killbillEvent.getEventType()
+										+ " for object id " + killbillEvent.getObjectId()
+										+ " of type " + killbillEvent.getObjectType());
+		try {
+			final Account account = osgiKillbillAPI.getAccountUserApi().getAccountById(killbillEvent.getAccountId(), new HelloWorldContext(killbillEvent.getTenantId()));
+			logService.log(LogService.LOG_INFO, "Account information: "	+ account);
+		} catch (final AccountApiException e) {
+			logService.log(LogService.LOG_WARNING, "Unable to find account", e);
+		}
+	}
 
-    private static final class HelloWorldContext implements TenantContext {
+	private static final class HelloWorldContext implements TenantContext {
 
-        private final UUID tenantId;
+		private final UUID tenantId;
 
-        private HelloWorldContext(final UUID tenantId) {
-            this.tenantId = tenantId;
-        }
+		private HelloWorldContext(final UUID tenantId) {
+			this.tenantId = tenantId;
+		}
 
-        @Override
-        public UUID getTenantId() {
-            return tenantId;
-        }
-    }
+		@Override
+		public UUID getTenantId() {
+			return tenantId;
+		}
+	}
 }

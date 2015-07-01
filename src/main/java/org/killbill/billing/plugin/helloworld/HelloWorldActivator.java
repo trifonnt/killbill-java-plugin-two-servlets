@@ -31,48 +31,48 @@ import org.osgi.framework.BundleContext;
 
 public class HelloWorldActivator extends KillbillActivatorBase {
 
-    public static final String PLUGIN_NAME = "killbill-helloworld";
+	public static final String PLUGIN_NAME = "killbill-helloworld";
 
-    private OSGIKillbillEventHandler analyticsListener;
+	private OSGIKillbillEventHandler analyticsListener;
 
-    @Override
-    public void start(final BundleContext context) throws Exception {
-        super.start(context);
+	@Override
+	public void start(final BundleContext context) throws Exception {
+		super.start(context);
 
-        // Register an event listener (optional)
-        analyticsListener = new HelloWorldListener(logService, killbillAPI);
-        dispatcher.registerEventHandler(analyticsListener);
+		// Register an event listener (optional)
+		analyticsListener = new HelloWorldListener(logService, killbillAPI);
+		dispatcher.registerEventHandler(analyticsListener);
 
-        // Register a payment plugin api (optional)
-        final PaymentPluginApi paymentPluginApi = new HelloWorldPaymentPluginApi(configProperties.getProperties(), logService);
-        registerPaymentPluginApi(context, paymentPluginApi);
+		// Register a payment plugin api (optional)
+		final PaymentPluginApi paymentPluginApi = new HelloWorldPaymentPluginApi(configProperties.getProperties(), logService);
+		registerPaymentPluginApi(context, paymentPluginApi);
 
-        // Register a servlet (optional)
-        final HelloWorldServlet analyticsServlet = new HelloWorldServlet(logService);
-        registerServlet(context, analyticsServlet);
-    }
+		// Register a servlet (optional)
+		final HelloWorldServlet analyticsServlet = new HelloWorldServlet(logService);
+		registerServlet(context, analyticsServlet);
+	}
 
-    @Override
-    public void stop(final BundleContext context) throws Exception {
-        super.stop(context);
+	@Override
+	public void stop(final BundleContext context) throws Exception {
+		super.stop(context);
 
-        // Do additional work on shutdown (optional)
-    }
+		// Do additional work on shutdown (optional)
+	}
 
-    @Override
-    public OSGIKillbillEventHandler getOSGIKillbillEventHandler() {
-        return analyticsListener;
-    }
+	@Override
+	public OSGIKillbillEventHandler getOSGIKillbillEventHandler() {
+		return analyticsListener;
+	}
 
-    private void registerServlet(final BundleContext context, final HttpServlet servlet) {
-        final Hashtable<String, String> props = new Hashtable<String, String>();
-        props.put(OSGIPluginProperties.PLUGIN_NAME_PROP, PLUGIN_NAME);
-        registrar.registerService(context, Servlet.class, servlet, props);
-    }
+	private void registerServlet(final BundleContext context, final HttpServlet servlet) {
+		final Hashtable<String, String> props = new Hashtable<String, String>();
+		props.put(OSGIPluginProperties.PLUGIN_NAME_PROP, PLUGIN_NAME);
+		registrar.registerService(context, Servlet.class, servlet, props);
+	}
 
-    private void registerPaymentPluginApi(final BundleContext context, final PaymentPluginApi api) {
-        final Hashtable<String, String> props = new Hashtable<String, String>();
-        props.put(OSGIPluginProperties.PLUGIN_NAME_PROP, PLUGIN_NAME);
-        registrar.registerService(context, PaymentPluginApi.class, api, props);
-    }
+	private void registerPaymentPluginApi(final BundleContext context, final PaymentPluginApi api) {
+		final Hashtable<String, String> props = new Hashtable<String, String>();
+		props.put(OSGIPluginProperties.PLUGIN_NAME_PROP, PLUGIN_NAME);
+		registrar.registerService(context, PaymentPluginApi.class, api, props);
+	}
 }
