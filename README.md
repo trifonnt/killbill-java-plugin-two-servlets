@@ -11,5 +11,5 @@ Kill Bill plugin in Java with two Servlets. It shows how to:
 To build, run `mvn clean install`. You can then install the plugin (`target/killbill-java-plugin-two-servlets-*.jar`) in `/var/tmp/bundles/plugins/java/two-servlets/1.0`.
 
 End point for servlets:
-http://127.0.0.1:8080/plugins/killbill-two-servlets/one
-http://127.0.0.1:8080/plugins/killbill-two-servlets/two
+http://127.0.0.1:8080/plugins/killbill-two-servlets_one
+http://127.0.0.1:8080/plugins/killbill-two-servlets_two

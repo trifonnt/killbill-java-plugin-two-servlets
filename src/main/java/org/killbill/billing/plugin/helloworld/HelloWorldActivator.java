@@ -49,10 +49,10 @@ public class HelloWorldActivator extends KillbillActivatorBase {
 
 		// Register a servlet (optional)
 		final ServletOne servletOne = new ServletOne(logService);
-		registerServlet(context, servletOne, "/one");
+		registerServlet(context, servletOne, "_one");
 
 		final ServletTwo servletTwo = new ServletTwo(logService);
-		registerServlet(context, servletTwo, "/two");
+		registerServlet(context, servletTwo, "_two");
 	}
 
 	@Override
