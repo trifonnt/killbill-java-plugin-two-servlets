@@ -26,20 +26,20 @@
 		<version>0.11</version>
 	</parent>
 	<groupId>org.kill-bill.billing.plugin.java</groupId>
-	<artifactId>hello-world-plugin</artifactId>
+	<artifactId>killbill-java-plugin-two-servlets</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>bundle</packaging>
-	<name>Kill Bill OSGI Hello World bundle</name>
-	<description>Kill Bill Hello World plugin</description>
-	<url>http://github.com/killbill/killbill-hello-world-java-plugin</url>
+	<name>Kill Bill OSGI Java bundle</name>
+	<description>Kill Bill Java plugin</description>
+	<url>http://github.com/trifonnt/killbill-java-plugin-two-servlets</url>
 	<scm>
-		<connection>scm:git:git://github.com/killbill/killbill-hello-world-java-plugin.git</connection>
-		<developerConnection>scm:git:git@github.com:killbill/killbill-hello-world-java-plugin.git</developerConnection>
-		<url>http://github.com/killbill/killbill-hello-world-java-plugin/tree/master</url>
+		<connection>scm:git:git://github.com/trifonnt/killbill-java-plugin-two-servlets.git</connection>
+		<developerConnection>scm:git:git@github.com:trifonnt/killbill-java-plugin-two-servlets.git</developerConnection>
+		<url>http://github.com/trifonnt/killbill-java-plugin-two-servlets/tree/master</url>
 	</scm>
 	<issueManagement>
 		<system>Github</system>
-		<url>https://github.com/killbill/killbill-hello-world-java-plugin/issues</url>
+		<url>https://github.com/trifonnt/killbill-java-plugin-two-servlets/issues</url>
 	</issueManagement>
 	<dependencies>
 		<dependency>
@@ -171,7 +171,7 @@
 				<artifactId>maven-shade-plugin</artifactId>
 				<executions>
 					<execution>
-						<id>assemble-killbill-osgi-bundles-hello-world-java-plugin</id>
+						<id>assemble-killbill-osgi-bundles-two-servlets</id>
 						<goals>
 							<goal>shade</goal>
 						</goals>
