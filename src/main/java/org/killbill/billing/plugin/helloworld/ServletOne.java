@@ -27,13 +27,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.osgi.service.log.LogService;
 
-public class HelloWorldServlet extends HttpServlet {
+public class ServletOne extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
 	private final LogService logService;
 
-	public HelloWorldServlet(final LogService logService) {
+	public ServletOne(final LogService logService) {
 		this.logService = logService;
 	}
 
@@ -41,14 +41,14 @@ public class HelloWorldServlet extends HttpServlet {
 	protected void doGet(final HttpServletRequest req, final HttpServletResponse resp) 
 		throws ServletException, IOException 
 	{
-		// Find me on http://127.0.0.1:8080/plugins/killbill-helloworld
-		logService.log(LogService.LOG_INFO, "Hello world");
+		// Find me on http://127.0.0.1:8080/plugins/killbill-two-servlets/one
+		logService.log(LogService.LOG_INFO, "Hello from Servlet One");
 
 		// Set response content type
 		resp.setContentType("text/html");
 
 		// Actual logic goes here.
 		PrintWriter out = resp.getWriter();
-		out.println("<h1>Hello from KillBill Java plugin!</h1>");
+		out.println("<h1>Hello from Servlet One!</h1>");
 	}
 }

@@ -1,11 +1,15 @@
-killbill-hello-world-java-plugin
-================================
+killbill-java-plugin-two-servlets
+=================================
 
-Hello World Kill Bill plugin in Java. It shows how to:
+Kill Bill plugin in Java with two Servlets. It shows how to:
 
 * Build an OSGI plugin using Maven
 * Listen to Kill Bill events
 * Call Kill Bill APIs from the plugin
-* Register a custom HTTP servlet
+* Register two custom HTTP servlets
 
-To build, run `mvn clean install`. You can then install the plugin (`target/hello-world-plugin-*.jar`) in `/var/tmp/bundles/plugins/java/hello/1.0`.
+To build, run `mvn clean install`. You can then install the plugin (`target/killbill-java-plugin-two-servlets-*.jar`) in `/var/tmp/bundles/plugins/java/two-servlets/1.0`.
+
+End point for servlets:
+http://127.0.0.1:8080/plugins/killbill-two-servlets/one
+http://127.0.0.1:8080/plugins/killbill-two-servlets/two

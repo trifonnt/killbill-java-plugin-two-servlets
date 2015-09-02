@@ -31,7 +31,7 @@ import org.osgi.framework.BundleContext;
 
 public class HelloWorldActivator extends KillbillActivatorBase {
 
-	public static final String PLUGIN_NAME = "killbill-helloworld";
+	public static final String PLUGIN_NAME = "killbill-two-servlets";
 
 	private OSGIKillbillEventHandler analyticsListener;
 
@@ -48,8 +48,11 @@ public class HelloWorldActivator extends KillbillActivatorBase {
 		registerPaymentPluginApi(context, paymentPluginApi);
 
 		// Register a servlet (optional)
-		final HelloWorldServlet analyticsServlet = new HelloWorldServlet(logService);
-		registerServlet(context, analyticsServlet);
+		final ServletOne servletOne = new ServletOne(logService);
+		registerServlet(context, servletOne, "/one");
+
+		final ServletTwo servletTwo = new ServletTwo(logService);
+		registerServlet(context, servletTwo, "/two");
 	}
 
 	@Override
@@ -64,9 +67,9 @@ public class HelloWorldActivator extends KillbillActivatorBase {
 		return analyticsListener;
 	}
 
-	private void registerServlet(final BundleContext context, final HttpServlet servlet) {
+	private void registerServlet(final BundleContext context, final HttpServlet servlet, String subPath) {
 		final Hashtable<String, String> props = new Hashtable<String, String>();
-		props.put(OSGIPluginProperties.PLUGIN_NAME_PROP, PLUGIN_NAME);
+		props.put(OSGIPluginProperties.PLUGIN_NAME_PROP, PLUGIN_NAME + subPath);
 		registrar.registerService(context, Servlet.class, servlet, props);
 	}
 
